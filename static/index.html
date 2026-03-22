@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Health Server</title>
+  
+</head>
+<body>
+  
+<label>Feet:</label>
+<input type="number" id="feet"><br>
+
+<label>Inches:</label>
+<input type="number" id="inches"><br>
+
+<label>Weight (lbs):</label>
+<input type="number" id="lbs"><br>
+
+<button onclick="calculateBMI()">Calculate BMI</button>
+
+<div id="bmi-result"></div>
+<br><br>
+
+</body>
+<script>
+  function calculateBMI() {
+      const feet = document.getElementById('feet').value;
+      const inches = document.getElementById('inches').value;
+      const lbs = document.getElementById('lbs').value;
+
+      fetch(`/calculate-bmi?feet=${feet}&inches=${inches}&lbs=${lbs}`)
+        .then(response => response.text())
+        .then(data => {
+          document.getElementById('bmi-result').innerText = "BMI: " + data;
+        });
+    }
+</script>
+</html>
