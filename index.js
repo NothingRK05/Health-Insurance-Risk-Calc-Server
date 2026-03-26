@@ -16,9 +16,9 @@ app.use(cors({ origin: '*' }))
 app.get('/calculate-bmi', (request, response) => {
     console.log('Calling "/calculate-bmi" on the Node.js server.')
     let { feet, inches, lbs } = request.query
-    let heightFeet = parseInt(feet)
-    let heightInches = parseInt(inches)
-    let weight = parseInt(lbs)
+    let heightFeet = parseInt(feet);
+    let heightInches = parseInt(inches);
+    let weight = parseInt(lbs);
 
 
     console.log('Height:' + heightFeet + '\'' + heightInches + '\'')
@@ -31,10 +31,20 @@ app.get('/calculate-bmi', (request, response) => {
     bmi = ((weight) / ((totalHeightInches) ** 2)) * 703;
     // Todo: Return BMI instead of Todo message.
     console.log("BMI:", bmi)
+    var category = ""
+    if (bmi <= 24.9){
+        category = "Normal";
+    }
+    else if(bmi <= 29.9){
+        category = "Overweight";
+    }
+    else if(bmi >= 30){
+        category = "Obese";
+    }
 
 
     response.type('text/plain')
-    response.send(bmi.toFixed(2))
+    response.send(category)
 })
 
 app.listen(port, () => console.log(
