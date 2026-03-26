@@ -14,12 +14,13 @@ app.use(express.static(__dirname + '/static'))
 app.use(cors({ origin: '*' }))
 
 app.get('/calculate-bmi', (request, response) => {
-    console.log('Calling "/calculate-bmi" on the Node.js server.')
-    let { feet, inches, lbs } = request.query
-    let heightFeet = parseInt(feet)
-    let heightInches = parseInt(inches)
-    let weight = parseInt(lbs)
-
+    console.log('Calling "/calculate-bmi" on the Node.js server.');
+    let { feet, inches, lbs, systolic, diastolic } = request.query;
+    let heightFeet = parseInt(feet);
+    let heightInches = parseInt(inches);
+    let weight = parseInt(lbs);
+    let systolicNum = parseInt(systolic);
+    let diastolicNum = parseInt(diastolic);
 
     console.log('Height:' + heightFeet + '\'' + heightInches + '\'')
     console.log("Weight (lbs):", weight)
