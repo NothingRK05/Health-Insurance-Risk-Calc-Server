@@ -101,6 +101,12 @@ app.get('/calculate-risk', (request, response) => {
         riskLevel: level
     })
 })
+
+app.get('/ping', (req, res) => {
+  console.log('Wake-up request received');
+  res.status(200).send('pong');
+});
+
 app.listen(port, () => console.log(
     `Express started at \"http://localhost:${port}\"\n` +
     `press Ctrl-C to terminate.`)
