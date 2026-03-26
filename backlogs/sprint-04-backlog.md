@@ -13,11 +13,12 @@ Product Owner: Ricardo Salgado
 Sprint 4 Planning Date/Time: Thursday 3/12 9:30-10:45
 
 Sprint 4 Planning Participants: Ricardo Salgado, Bobby DiDomenico, Angelo, Bryce
+
 Sprint 4 Backlog:
 
 | **ID** | **User Story / Task** | **Priority (1-10)** | **Estimate (SP)** | **Spike (Y/N)** | **Status** | **Assigned** |
 |--------|------------------------|--------------|--------------|------------|--------------|--------------|
-| RC-001 | As a Scrum Team, we want to identify the Sprint 4 Scrum Master and Product Owner so that I can ensure team responsibilities are clearly defined for the sprint, | 10 | 0 | Y | Ready | -- |
+| RC-001 | As a Scrum Team, we want to identify the Sprint 4 Scrum Master and Product Owner so that I can ensure team responsibilities are clearly defined for the sprint, | 10 | 0 | Y | Ready | All |
 | RC-007 | As a user, I want to enter my age, height (in feet and inches), weight (lbs), blood pressure, and family history so that I can receive a personalized risk calculation. | 8 | 1 | N | -- | Ricardo |
 | RC-003 | As a Scrum Master, I want to facilitate Sprint Planning and story commitment so that I can help the team work with focus and alignment. | 8 | 0 | Y | -- | Bryce |
 | RC-011 | As a developer, I want to implement the risk calculation API using Node.js so that I can encapsulate the core business logic on the server side. | 8 | 3 | Y | -- | Angelo |
