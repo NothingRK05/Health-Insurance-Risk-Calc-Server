@@ -14,11 +14,14 @@ app.use(express.static(__dirname + '/static'))
 app.use(cors({ origin: '*' }))
 
 app.get('/calculate-bmi', (request, response) => {
-    console.log('Calling "/calculate-bmi" on the Node.js server.')
-    let { feet, inches, lbs } = request.query
-    let heightFeet = parseInt(feet)
-    let heightInches = parseInt(inches)
-    let weight = parseInt(lbs)
+    console.log('Calling "/calculate-bmi" on the Node.js server.');
+    let { feet, inches, lbs, systolic, diastolic } = request.query;
+    let heightFeet = parseInt(feet);
+    let heightInches = parseInt(inches);
+    let weight = parseInt(lbs);
+    let systolicNum = parseInt(systolic);
+    let diastolicNum = parseInt(diastolic);
+
 
 
     console.log('Height:' + heightFeet + '\'' + heightInches + '\'')
@@ -32,6 +35,19 @@ app.get('/calculate-bmi', (request, response) => {
     // Todo: Return BMI instead of Todo message.
     console.log("BMI:", bmi)
 
+    let bloodPressure;
+
+    if (systolicNum == 5 || diastolicNum == 4){
+        bloodPressure = "Crisis";
+    } else if (systolicNum == 4 || diastolicNum == 3){
+        bloodPressure = "Stage 2";
+    } else if (systolicNum == 3 || diastolicNum == 2){
+        bloodPressure = "Stage 1";
+    } else if (systolicNum == 2 && diastolicNum == 1){
+        bloodPressure = "Elevated";
+    } else if (systolicNum == 1 && diastolicNum == 1){
+        bloodPressure = "Normal";
+    }
 
     response.type('text/plain')
     response.send(bmi.toFixed(2))
